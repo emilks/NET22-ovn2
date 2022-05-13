@@ -1,10 +1,11 @@
-﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Hello, World!");
+﻿
+Console.WriteLine("Välkommna till övning 2 programmet!");
 
 bool active = true;
 while (active)
 {
-    Console.WriteLine("Välkommna till ");
+    Console.WriteLine("Skriv 0 för att avsluta.");
+    Console.WriteLine("skriv 1 för att se pris för biljett.");
     int choice = Convert.ToInt32(Console.ReadLine());
     switch(choice)
     {
@@ -12,9 +13,52 @@ while (active)
             Console.WriteLine("Hej då");
             active = false;
             break;
+        case 1:
+            //ålder
+            Console.WriteLine("Hur många biljetter vill ni köpa?");
+            int amount = Convert.ToInt32(Console.ReadLine());
+            int totalPrice = 0;
+            for(int i = 0; i < amount; i++)
+            {
+                totalPrice += checkAge();
+            }
+            Console.WriteLine($"Biljätter för {amount} personer till totalt pris: {totalPrice}");
+
+            break;
+
         default:
             Console.WriteLine("Felaktig input");
             break;
 
     }
+    Console.WriteLine("\n");
 }
+
+//Skriver ut och returnerar priset baserat på ålder
+static int checkAge()
+{
+
+    Console.WriteLine("Skriv ut din ålder:");
+    int age = Convert.ToInt32(Console.ReadLine());
+    if (age < 5 || age > 100)
+    {
+        Console.WriteLine("Du går gratis!");
+        return 0;
+    }else if (age < 20)
+    {
+        Console.WriteLine("Ungdomspris: 80kr");
+        return 80;
+    }
+    else if (age > 64)
+    {
+        Console.WriteLine("Pensinärspris: 90kr");
+        return 90;
+
+    }
+    else
+    {
+        Console.WriteLine("Standardpris: 120kr");
+        return 120;
+    }
+}
+
