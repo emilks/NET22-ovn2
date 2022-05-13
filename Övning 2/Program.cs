@@ -7,6 +7,7 @@ while (active)
     Console.WriteLine("Skriv 0 för att avsluta.");
     Console.WriteLine("Skriv 1 för att se pris för biljett.");
     Console.WriteLine("Skriv 2 för att upprepa en input 10 gånger.");
+    Console.WriteLine("Skriv 3 för att ta ut det tredje ordet ur en mening.");
     int choice = Convert.ToInt32(Console.ReadLine());
     switch(choice)
     {
@@ -29,6 +30,10 @@ while (active)
 
         case 2:
             repeat();
+            break;
+
+        case 3:
+            split();
             break;
 
         default:
@@ -80,3 +85,14 @@ static void repeat()
 }
 
 //Menyval 3: 
+static void split()
+{
+    Console.WriteLine("Skriv en mening med minst tre ord:");
+    var mening = Console.ReadLine();
+    string[] lista = mening.Split(' ');
+    foreach(string s in lista)
+    {
+        Console.WriteLine(s);
+    }
+    Console.WriteLine($"Det tredje ordet i stringen är: {lista[2]}");
+}
