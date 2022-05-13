@@ -5,7 +5,8 @@ bool active = true;
 while (active)
 {
     Console.WriteLine("Skriv 0 för att avsluta.");
-    Console.WriteLine("skriv 1 för att se pris för biljett.");
+    Console.WriteLine("Skriv 1 för att se pris för biljett.");
+    Console.WriteLine("Skriv 2 för att upprepa en input 10 gånger.");
     int choice = Convert.ToInt32(Console.ReadLine());
     switch(choice)
     {
@@ -26,6 +27,10 @@ while (active)
 
             break;
 
+        case 2:
+            repeat();
+            break;
+
         default:
             Console.WriteLine("Felaktig input");
             break;
@@ -37,7 +42,6 @@ while (active)
 //Skriver ut och returnerar priset baserat på ålder
 static int checkAge()
 {
-
     Console.WriteLine("Skriv ut din ålder:");
     int age = Convert.ToInt32(Console.ReadLine());
     if (age < 5 || age > 100)
@@ -62,3 +66,17 @@ static int checkAge()
     }
 }
 
+//Menyval 2: Upprepa input
+static void repeat()
+{
+    Console.WriteLine("Skriv en input som ska upprepas:");
+    String input = Console.ReadLine();
+
+    for(int i = 0; i < 10; i++)
+    {
+        Console.Write($"{i+1}. {input}, ");
+    }
+    Console.Write("\n");
+}
+
+//Menyval 3: 
